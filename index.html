@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblia de Auditoría de Sistemas — ISO/IEC 27001 & 27002:2022</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <span class="badge-group">Grupo 2 · Auditoría de Sistemas · UniSalamanca</span>
+        <h1>Biblia de Auditoría: ISO/IEC 27001 e ISO/IEC 27002:2022</h1>
+        <p class="subtitle">
+          Herramienta de consulta rápida para el auditor: controles, cláusulas SGSI, evidencias, pruebas y riesgos.
+        </p>
+      </div>
+      <div class="stats-box" aria-live="polite">
+        <div class="stat-item">
+          <span id="total-controls" class="stat-num">0</span>
+          <span class="stat-label">Fichas</span>
+        </div>
+        <div class="stat-item">
+          <span id="total-keywords" class="stat-num">0</span>
+          <span class="stat-label">Palabras clave</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Buscador en tiempo real y filtros por dominio -->
+    <section class="search-panel" aria-label="Buscador de controles y cláusulas">
+      <div class="search-input-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Buscar por numeral (ej. 5.17, 8.28, 6.1), palabra clave, concepto o sinónimo (ej. MFA, nube, SoA)..."
+          autocomplete="off"
+          autofocus
+        />
+        <button id="clear-btn" class="clear-btn" type="button" hidden>Limpiar</button>
+      </div>
+
+      <!-- Filtro rápido por capítulo / temática -->
+      <div class="domain-filters" role="group" aria-label="Filtrar por capítulo o temática">
+        <button class="domain-btn active" data-domain="all" type="button">Todos</button>
+        <button class="domain-btn" data-domain="SGSI (Cláusulas 4–10)" type="button">SGSI (Cláusulas 4–10)</button>
+        <button class="domain-btn" data-domain="5. Organizacionales" type="button">5. Organizacionales</button>
+        <button class="domain-btn" data-domain="6. Personas" type="button">6. Personas</button>
+        <button class="domain-btn" data-domain="7. Físicos" type="button">7. Físicos</button>
+        <button class="domain-btn" data-domain="8. Tecnológicos" type="button">8. Tecnológicos</button>
+      </div>
+    </section>
+
+    <!-- Índice interactivo de palabras clave (28 palabras clave estratégicas) -->
+    <section class="keywords-panel" aria-label="Índice interactivo de palabras clave">
+      <div class="keywords-header">
+        <h2>Índice Interactivo de Palabras Clave</h2>
+        <span class="keywords-hint">Haz clic en cualquier término para desplegar sus fichas técnicas</span>
+      </div>
+      <div id="keywords-container" class="keywords-grid"></div>
+    </section>
+
+    <!-- Estado actual de resultados -->
+    <div class="results-bar">
+      <p id="results-status" aria-live="polite"></p>
+      <button id="reset-all-btn" class="reset-link" type="button" hidden>Ver todas las fichas</button>
+    </div>
+
+    <!-- Contenedor de fichas técnicas -->
+    <section id="cards-container" class="cards-grid" aria-label="Fichas de auditoría"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Biblia de Auditoría de Sistemas · Referencia ejecutiva ISO/IEC 27001:2022 &amp; ISO/IEC 27002:2022 · Uso exclusivo de consulta</p>
+    </div>
+  </footer>
+
+  <script src="data/controls.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
