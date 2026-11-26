@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biblia de Auditoría de Sistemas — ISO/IEC 27001 & 27002:2022</title>
+  <title>UniSalamanca | Materia: Auditoría de Sistemas | Grupo 2 — Biblia ISO/IEC 27001 & 27002</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Encabezado Institucional Superior -->
+  <div class="institutional-bar">
+    <div class="container institutional-bar-inner">
+      <div class="uni-brand">
+        <span class="uni-name">UniSalamanca</span>
+        <span class="uni-sub">Corporación Universitaria Empresarial de Salamanca</span>
+      </div>
+      <div class="course-meta">
+        <span class="meta-item"><strong>Materia:</strong> Auditoría de Sistemas</span>
+        <span class="group-pill">Grupo 2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encabezado Principal de la Aplicación -->
   <header class="topbar">
     <div class="container topbar-content">
       <div>
-        <span class="badge-group">Grupo 2 · Auditoría de Sistemas · UniSalamanca</span>
-        <h1>Biblia de Auditoría: ISO/IEC 27001 e ISO/IEC 27002:2022</h1>
+        <span class="badge-group">UniSalamanca · Materia: Auditoría de Sistemas · Grupo 2</span>
+        <h1>Biblia de Auditoría de Sistemas: ISO/IEC 27001 &amp; 27002 (2013 ↔ 2022)</h1>
         <p class="subtitle">
-          Herramienta de consulta rápida para el auditor: controles, cláusulas SGSI, evidencias, pruebas y riesgos.
+          Consulta rápida de controles 2022, evidencias, pruebas, riesgos y equivalencias de actualización desde la versión 2013.
         </p>
       </div>
       <div class="stats-box" aria-live="polite">
@@ -25,61 +40,128 @@
           <span id="total-keywords" class="stat-num">0</span>
           <span class="stat-label">Palabras clave</span>
         </div>
+        <div class="stat-item stat-highlight">
+          <span id="total-new" class="stat-num">0</span>
+          <span class="stat-label">Nuevos 2022</span>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Buscador en tiempo real y filtros por dominio -->
-    <section class="search-panel" aria-label="Buscador de controles y cláusulas">
-      <div class="search-input-wrap">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input
-          type="search"
-          id="search-input"
-          placeholder="Buscar por numeral (ej. 5.17, 8.28, 6.1), palabra clave, concepto o sinónimo (ej. MFA, nube, SoA)..."
-          autocomplete="off"
-          autofocus
-        />
-        <button id="clear-btn" class="clear-btn" type="button" hidden>Limpiar</button>
+    <!-- Panel colapsable: Resumen de actualización 2013 vs 2022 -->
+    <section class="transition-banner" aria-label="Resumen de cambios 2013 vs 2022">
+      <div class="transition-banner-header">
+        <div>
+          <strong>Guía Rápida de Actualización (2013 → 2022):</strong>
+          <span>De 114 controles en 14 dominios a 93 controles en 4 temáticas (0 eliminados, 57 fusionados en 24, 11 nuevos).</span>
+        </div>
+        <button id="toggle-summary-btn" class="summary-toggle-btn" type="button" aria-expanded="false">
+          Ver comparativa estructural
+        </button>
       </div>
 
-      <!-- Filtro rápido por capítulo / temática -->
-      <div class="domain-filters" role="group" aria-label="Filtrar por capítulo o temática">
-        <button class="domain-btn active" data-domain="all" type="button">Todos</button>
-        <button class="domain-btn" data-domain="SGSI (Cláusulas 4–10)" type="button">SGSI (Cláusulas 4–10)</button>
-        <button class="domain-btn" data-domain="5. Organizacionales" type="button">5. Organizacionales</button>
-        <button class="domain-btn" data-domain="6. Personas" type="button">6. Personas</button>
-        <button class="domain-btn" data-domain="7. Físicos" type="button">7. Físicos</button>
-        <button class="domain-btn" data-domain="8. Tecnológicos" type="button">8. Tecnológicos</button>
+      <div id="transition-summary-body" class="transition-summary-body" hidden>
+        <div class="summary-grid">
+          <div class="summary-col">
+            <h3>ISO/IEC 27001:2013 vs 2022 (Cláusulas 4–10)</h3>
+            <ul>
+              <li><strong>4.1 y 4.2:</strong> Se añade consideración de <em>cambio climático</em> (Enmienda 2024) y apartado <code>4.2 c)</code> sobre requisitos abordados en el SGSI.</li>
+              <li><strong>6.2 y 6.3:</strong> Se exige seguimiento de objetivos (<code>6.2</code>) y nace la <strong>Cláusula 6.3 (Planificación de cambios)</strong>.</li>
+              <li><strong>9.2 y 9.3:</strong> Auditoría interna y Revisión por la dirección se subdividen para mayor claridad (<code>9.2.1/9.2.2</code> y <code>9.3.1–9.3.3</code>).</li>
+              <li><strong>10.1 y 10.2:</strong> Se invierte el orden: <code>10.1</code> pasa a ser Mejora continua y <code>10.2</code> No conformidad y acción correctiva.</li>
+            </ul>
+          </div>
+          <div class="summary-col">
+            <h3>ISO/IEC 27002 / Anexo A:2013 vs 2022</h3>
+            <ul>
+              <li><strong>Estructura:</strong> Pasa de 14 dominios (<code>A.5–A.18</code>) con 114 controles a <strong>4 temáticas</strong> con <strong>93 controles</strong>: Organizacionales (37), Personas (8), Físicos (14) y Tecnológicos (34).</li>
+              <li><strong>Consolidación:</strong> Ningún control fue eliminado en esencia; 57 controles de 2013 se fusionaron en 24 controles de 2022.</li>
+              <li><strong>11 Controles Nuevos:</strong> <code>5.7</code>, <code>5.23</code>, <code>5.30</code>, <code>7.4</code>, <code>8.9</code>, <code>8.10</code>, <code>8.11</code>, <code>8.12</code>, <code>8.16</code>, <code>8.23</code> y <code>8.28</code>.</li>
+              <li><strong>Atributos 2022:</strong> Cada control incorpora 5 atributos (Tipo de control, Propiedades de seguridad, Conceptos de ciberseguridad, Capacidades operacionales y Dominios).</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Índice interactivo de palabras clave (28 palabras clave estratégicas) -->
+    <!-- Buscador en tiempo real + Filtros por dominio y transición -->
+    <section class="search-panel" aria-label="Buscador de controles y cláusulas">
+      <div class="search-top-row">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar código 2022 o 2013 (ej. 5.17, A.9.4.3, A.12.3.1, 8.28, 6.3), concepto o sinónimo (MFA, nube, SoA)..."
+            autocomplete="off"
+            autofocus
+          />
+          <button id="clear-btn" class="clear-btn" type="button" hidden>Limpiar</button>
+        </div>
+
+        <!-- Selector de modo de visualización -->
+        <div class="view-switch" role="group" aria-label="Modo de visualización">
+          <button id="view-cards-btn" class="view-btn active" type="button">Fichas de Auditoría</button>
+          <button id="view-matrix-btn" class="view-btn" type="button">Matriz 2013 → 2022</button>
+        </div>
+      </div>
+
+      <div class="filters-stack">
+        <!-- Filtro por capítulo / temática -->
+        <div class="filter-group">
+          <span class="filter-group-label">Capítulo / Temática:</span>
+          <div class="domain-filters" role="group" aria-label="Filtrar por capítulo o temática">
+            <button class="domain-btn active" data-domain="all" type="button">Todos</button>
+            <button class="domain-btn" data-domain="SGSI (Cláusulas 4–10)" type="button">SGSI (4–10)</button>
+            <button class="domain-btn" data-domain="5. Organizacionales" type="button">5. Organizacionales</button>
+            <button class="domain-btn" data-domain="6. Personas" type="button">6. Personas</button>
+            <button class="domain-btn" data-domain="7. Físicos" type="button">7. Físicos</button>
+            <button class="domain-btn" data-domain="8. Tecnológicos" type="button">8. Tecnológicos</button>
+          </div>
+        </div>
+
+        <!-- Filtro por estado de transición 2013 -> 2022 -->
+        <div class="filter-group">
+          <span class="filter-group-label">Estado 2013 → 2022:</span>
+          <div class="status-filters" role="group" aria-label="Filtrar por estado de transición">
+            <button class="status-btn active" data-status="all" type="button">Todos</button>
+            <button class="status-btn status-new" data-status="nuevo" type="button">Nuevos en 2022</button>
+            <button class="status-btn status-merged" data-status="fusionado" type="button">Fusionados / Actualizados</button>
+            <button class="status-btn status-kept" data-status="mantenido" type="button">Mantenidos / Renumerados</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Índice interactivo de palabras clave -->
     <section class="keywords-panel" aria-label="Índice interactivo de palabras clave">
       <div class="keywords-header">
         <h2>Índice Interactivo de Palabras Clave</h2>
-        <span class="keywords-hint">Haz clic en cualquier término para desplegar sus fichas técnicas</span>
+        <span class="keywords-hint">Haz clic en cualquier término para desplegar sus fichas o equivalencias vinculadas</span>
       </div>
       <div id="keywords-container" class="keywords-grid"></div>
     </section>
 
-    <!-- Estado actual de resultados -->
+    <!-- Barra de estado de resultados -->
     <div class="results-bar">
       <p id="results-status" aria-live="polite"></p>
-      <button id="reset-all-btn" class="reset-link" type="button" hidden>Ver todas las fichas</button>
+      <button id="reset-all-btn" class="reset-link" type="button" hidden>Restablecer todos los filtros</button>
     </div>
 
-    <!-- Contenedor de fichas técnicas -->
+    <!-- Vista 1: Fichas de Auditoría -->
     <section id="cards-container" class="cards-grid" aria-label="Fichas de auditoría"></section>
+
+    <!-- Vista 2: Matriz Comparativa Rápida 2013 -> 2022 -->
+    <section id="matrix-container" class="matrix-wrap" aria-label="Matriz de equivalencia 2013 a 2022" hidden></section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>Biblia de Auditoría de Sistemas · Referencia ejecutiva ISO/IEC 27001:2022 &amp; ISO/IEC 27002:2022 · Uso exclusivo de consulta</p>
+      <p><strong>UniSalamanca</strong> · Materia: Auditoría de Sistemas · Grupo 2 · Biblia de Auditoría ISO/IEC 27001 &amp; 27002 (2013 ↔ 2022)</p>
     </div>
   </footer>
 
